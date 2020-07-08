@@ -30,7 +30,7 @@ Plug 'searleser97/cpbooster.vim'
 |----------------|-----------------------------------------------------------------------------------------|
 | `:debug [id]`  | Run your current code with your debugging flags against all available testcases for it, |
 |                | or just one testcase if [id] is set.                                                    |
-
+|----------------|-----------------------------------------------------------------------------------------|
 
 ## License
 
