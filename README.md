@@ -24,7 +24,7 @@ Plug 'searleser97/cpbooster.vim'
 ## Commands
 
 | Command        | Description                                                                             |
-|---             |---                                                                                      |
+|----------------|-----------------------------------------------------------------------------------------| 
 | `:test [id]`   | Test your current code against all available testcases for it,                          | 
 |                | or just one testcase if [id] is set.                                                    |
 |----------------|-----------------------------------------------------------------------------------------|
