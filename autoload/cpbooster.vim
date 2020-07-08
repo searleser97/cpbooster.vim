@@ -10,7 +10,7 @@ endfunction
 function cpbooster#CpboosterDebug(...)
 	execute 'w'
 	if a:0 == 0
-		execute '!cpbooster test "%"'
+		execute '!cpbooster test "%" -d'
 	else
 		execute '!cpbooster test "%" -d -t ' . a:1
 	endif
