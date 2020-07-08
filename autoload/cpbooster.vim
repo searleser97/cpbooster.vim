@@ -1,4 +1,4 @@
-function CpboosterTest(...)
+function cpbooster#CpboosterTest(...)
 	execute 'w'
 	if a:0 == 0
 		execute '!cpbooster test "%"'
@@ -7,7 +7,7 @@ function CpboosterTest(...)
 	endif
 endfunction
 
-function CpboosterDebug(...)
+function cpbooster#CpboosterDebug(...)
 	execute 'w'
 	if a:0 == 0
 		execute '!cpbooster test "%"'
