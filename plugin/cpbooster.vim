@@ -1,2 +1,2 @@
-:command -nargs=? Test call CpboosterTest(<f-args>)
-:command -nargs=? Debug call CpboosterDebug(<f-args>)
+:command -nargs=? Test call cpbooster#CpboosterTest(<f-args>)
+:command -nargs=? Debug call cpbooster#CpboosterDebug(<f-args>)
