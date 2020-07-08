@@ -15,6 +15,7 @@ npm install cpbooster -g
 ```
 
 - Install **cpbooster.vim** using your preferred plugin manager
+
 -- Using [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
