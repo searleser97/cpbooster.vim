@@ -27,7 +27,7 @@ Plug 'searleser97/cpbooster.vim'
 | Command        | Description                                                                             |
 |----------------|-----------------------------------------------------------------------------------------| 
 | `:Test [id]`   | Test your current code against all available testcases for it,<br/>or just one testcase if [id] is set.|
-| `:Debug [id]`  | Run your current code with your debugging flags against all available testcases for it,<br/>or just one testcase if [id] is set.|
+| `:Debug [id]`  | Run your current code with your debugging flags,<br/>or run it against one testcase if [id] is set.|
 
 ## License
 
