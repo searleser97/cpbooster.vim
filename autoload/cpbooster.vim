@@ -15,3 +15,12 @@ function cpbooster#CpboosterDebug(...)
 		execute '!cpbooster test "%" -d -t ' . a:1
 	endif
 endfunction
+
+function cpbooster#CpboosterCreate(...)
+	execute 'w'
+	if a:0 == 1
+		execute '!cpbooster create ' . a:1
+	else
+		echo 'Missing file name'
+	endif
+endfunction
