@@ -28,6 +28,7 @@ Plug 'searleser97/cpbooster.vim'
 |----------------|-----------------------------------------------------------------------------------------| 
 | `:Test [id]`   | Test your current code against all available testcases for it,<br/>or just one testcase if [id] is set.|
 | `:Debug [id]`  | Run your current code with your debugging flags,<br/>or run it against one testcase if [id] is set.|
+| `:Create <filename>` | Create source file loading the corresponding<br/>template for the file extension. |
 
 ## License
 
