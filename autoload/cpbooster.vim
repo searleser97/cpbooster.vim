@@ -43,3 +43,9 @@ function cpbooster#CpboosterRTest(...)
 		execute '!cpbooster test "%" --nc -t ' . a:1	
 	endif
 endfunction
+
+function cpbooster#CpboosterAddtc(...)
+    execute 'w'
+    execute '!cpbooster test "%" -a'
+endfunction
+
