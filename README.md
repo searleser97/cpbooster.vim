@@ -31,6 +31,7 @@ Plug 'searleser97/cpbooster.vim'
 | `:Create <filename>` | Create source file loading the corresponding<br/>template for the file extension.|
 | `:Rtest [id]`  | Test the last compiled version of your code.<br/>Same as `:Test` but without recompiling.|
 | `:Rdebug [id]` | Debug the last compiled version of your code.<br/>Sames as `:Debug` but without recompiling.|
+| `:Addtc`       | Add new test case for your current code.|
 
 ## License
 
