@@ -25,3 +25,21 @@ function cpbooster#CpboosterCreate(...)
 		echo 'Missing file name'
 	endif
 endfunction
+
+function cpbooster#CpboosterRDebug(...)
+	execute 'w'
+	if a:0 == 0
+		execute '!cpbooster test "%" -d --nc'
+	else
+		execute '!cpbooster test "%" -d --nc -t ' . a:1
+	endif
+endfunction
+
+function cpbooster#CpboosterRTest(...)
+	execute 'w'
+	if a:0 == 0
+		execute '!cpbooster test "%" --nc'
+	else
+		execute '!cpbooster test "%" --nc -t ' . a:1	
+	endif
+endfunction
