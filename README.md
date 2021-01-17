@@ -33,6 +33,11 @@ Plug 'searleser97/cpbooster.vim'
 | `:Rdebug [id]` | Debug the last compiled version of your code.<br/>Sames as `:Debug` but without recompiling.|
 | `:Addtc`       | Add new test case for your current code.|
 
+## Future Updates
+
+- Add `:TestAs <filename>` command
+- Add `:DebugAs <filename>` command
+
 ## License
 
 ```cpbooster.vim``` is licensed under the [GNU General Public License v3.0](https://github.com/searleser97/cpbooster.vim/blob/master/LICENSE)
