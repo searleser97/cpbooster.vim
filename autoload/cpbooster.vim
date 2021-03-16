@@ -1,12 +1,20 @@
-function cpbooster#DeleteBufferByPrefix(pref)
-  let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && bufname(v:val) =~ "^'.a:pref.'"')
-  if (len(buffers) > 0)
-    exe 'bd! '.join(buffers, ' ')
-  endif
-endfunction
+if (has('nvim'))
+  let s:termCommand = 'botright vsplit | term '
+else
+  let s:termCommand = 'vert botright term '
+endif
 
 function cpbooster#DeleteTerminalBuffers()
-  call cpbooster#DeleteBufferByPrefix('!cpbooster')
+	if (has('nvim'))
+		let pattern = '.*term:.*cpbooster.*'
+	else
+		let pattern = '!cpbooster.*'
+	endif
+
+	let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && bufname(v:val) =~ "'.pattern.'"')
+	if (len(buffers) > 0)
+			exe 'bd! '.join(buffers, ' ')
+	endif
 endfunction
 
 function cpbooster#CpboosterTest(...)
@@ -14,9 +22,9 @@ function cpbooster#CpboosterTest(...)
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
 	if a:0 == 0
-		execute 'vert botright term cpbooster test "%"'
+		execute s:termCommand . 'cpbooster test "%"'
 	else
-		execute 'vert botright term cpbooster test "%" -t ' . a:1	
+		execute s:termCommand . 'cpbooster test "%" -t ' . a:1	
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
   execute 'wincmd w'
@@ -27,9 +35,9 @@ function cpbooster#CpboosterDebug(...)
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
 	if a:0 == 0
-		execute 'vert botright term cpbooster test "%" -d'
+		execute s:termCommand . 'cpbooster test "%" -d'
 	else
-		execute 'vert botright term cpbooster test "%" -d -t ' . a:1
+		execute s:termCommand . 'cpbooster test "%" -d -t ' . a:1
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
   execute 'wincmd w'
@@ -40,9 +48,9 @@ function cpbooster#CpboosterRDebug(...)
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
 	if a:0 == 0
-		execute 'vert botright term cpbooster test "%" -d --nc'
+		execute s:termCommand . 'cpbooster test "%" -d --nc'
 	else
-		execute 'vert botright term cpbooster test "%" -d --nc -t ' . a:1
+		execute s:termCommand . 'cpbooster test "%" -d --nc -t ' . a:1
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
   execute 'wincmd w'
@@ -53,17 +61,20 @@ function cpbooster#CpboosterRTest(...)
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
 	if a:0 == 0
-		execute 'vert botright term cpbooster test "%" --nc'
+		execute s:termCommand . 'cpbooster test "%" --nc'
 	else
-		execute 'vert botright term cpbooster test "%" --nc -t ' . a:1	
+		execute s:termCommand . 'cpbooster test "%" --nc -t ' . a:1	
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
   execute 'wincmd w'
 endfunction
 
 function cpbooster#CpboosterAddtc(...)
-    execute 'w'
-    execute '!cpbooster test "%" -a'
+	execute 'w'
+	call cpbooster#DeleteTerminalBuffers()
+  let totalSize = winwidth(0)
+	execute s:termCommand . 'cpbooster test "%" -a'
+  execute 'vertical resize ' . (totalSize * 3 / 7) 
 endfunction
 
 function cpbooster#CpboosterCreate(...)
@@ -75,3 +86,4 @@ function cpbooster#CpboosterCreate(...)
 		echo 'Missing file name'
 	endif
 endfunction
+ndfunction
