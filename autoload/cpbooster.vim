@@ -36,11 +36,14 @@ function cpbooster#CpboosterDebug(...)
   let totalSize = winwidth(0)
 	if a:0 == 0
 		execute s:termCommand . 'cpbooster test "%" -d'
+		if (has('nvim'))
+			execute 'startinsert'
+		endif
 	else
 		execute s:termCommand . 'cpbooster test "%" -d -t ' . a:1
+		execute 'wincmd w'
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
-  execute 'wincmd w'
 endfunction
 
 function cpbooster#CpboosterRDebug(...)
@@ -49,11 +52,14 @@ function cpbooster#CpboosterRDebug(...)
   let totalSize = winwidth(0)
 	if a:0 == 0
 		execute s:termCommand . 'cpbooster test "%" -d --nc'
+		if (has('nvim'))
+			execute 'startinsert'
+		endif
 	else
 		execute s:termCommand . 'cpbooster test "%" -d --nc -t ' . a:1
+		execute 'wincmd w'
 	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
-  execute 'wincmd w'
 endfunction
 
 function cpbooster#CpboosterRTest(...)
@@ -74,6 +80,9 @@ function cpbooster#CpboosterAddtc(...)
 	call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
 	execute s:termCommand . 'cpbooster test "%" -a'
+	if (has('nvim'))
+		execute 'startinsert'
+	endif
   execute 'vertical resize ' . (totalSize * 3 / 7) 
 endfunction
 
@@ -86,4 +95,4 @@ function cpbooster#CpboosterCreate(...)
 		echo 'Missing file name'
 	endif
 endfunction
-ndfunction
+
