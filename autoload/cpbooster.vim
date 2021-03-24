@@ -98,6 +98,8 @@ endfunction
 
 function cpbooster#CpboosterSubmit(...)
 	execute 'w'
+  call cpbooster#DeleteTerminalBuffers()
+  let totalSize = winwidth(0)
 	if a:0 == 1
 		execute s:termCommand . 'cpbooster submit "%" ' . a:1
 	else
