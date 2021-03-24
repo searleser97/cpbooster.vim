@@ -4,7 +4,7 @@
 
 [**cpbooster**](https://github.com/searleser97/cpbooster) plugin for vim or neovim
 
-<img src="https://searleser97.gitlab.io/competitive-programming-notes/cpbooster/cpbooster.gif"/>
+<img src="https://searleser97.github.io/cpbooster/img/demos/video-demo.gif"/>
 
 ## Installation
 
