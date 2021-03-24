@@ -96,3 +96,14 @@ function cpbooster#CpboosterCreate(...)
 	endif
 endfunction
 
+function cpbooster#CpboosterSubmit(...)
+	execute 'w'
+	if a:0 == 1
+		execute s:termCommand . 'cpbooster submit "%" ' . a:1
+	else
+		execute s:termCommand . 'cpbooster submit "%"'
+	endif
+  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'wincmd w'
+endfunction
+
