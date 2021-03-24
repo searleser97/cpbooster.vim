@@ -2,7 +2,7 @@
 
 ## About
 
-[**cpbooster**](https://github.com/searleser97/cpbooster) plugin for vim.
+[**cpbooster**](https://github.com/searleser97/cpbooster) plugin for vim or neovim
 
 <img src="https://searleser97.gitlab.io/competitive-programming-notes/cpbooster/cpbooster.gif"/>
 
