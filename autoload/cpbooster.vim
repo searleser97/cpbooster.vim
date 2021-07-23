@@ -1,3 +1,5 @@
+let s:cpboosterWindowRatio = 3.0 / 7.0
+
 if (has('nvim'))
   let s:termCommand = 'botright vsplit | term '
 else
@@ -26,7 +28,7 @@ function cpbooster#CpboosterTest(...)
   else
     execute s:termCommand . 'cpbooster test "%" -t ' . a:1	
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
   execute 'wincmd w'
 endfunction
 
@@ -43,7 +45,7 @@ function cpbooster#CpboosterDebug(...)
     execute s:termCommand . 'cpbooster test "%" -d -t ' . a:1
     execute 'wincmd w'
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterRDebug(...)
@@ -59,7 +61,7 @@ function cpbooster#CpboosterRDebug(...)
     execute s:termCommand . 'cpbooster test "%" -d --nc -t ' . a:1
     execute 'wincmd w'
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterRTest(...)
@@ -71,7 +73,7 @@ function cpbooster#CpboosterRTest(...)
   else
     execute s:termCommand . 'cpbooster test "%" --nc -t ' . a:1	
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
   execute 'wincmd w'
 endfunction
 
@@ -83,7 +85,7 @@ function cpbooster#CpboosterAddtc(...)
   if (has('nvim'))
     execute 'startinsert'
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterCreate(...)
@@ -105,7 +107,6 @@ function cpbooster#CpboosterSubmit(...)
   else
     execute s:termCommand . 'cpbooster submit "%"'
   endif
-  execute 'vertical resize ' . (totalSize * 3 / 7) 
+  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
   execute 'wincmd w'
 endfunction
-
