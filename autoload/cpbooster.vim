@@ -80,12 +80,21 @@ endfunction
 function cpbooster#CpboosterAddtc(...)
   execute 'w'
   call cpbooster#DeleteTerminalBuffers()
-  let totalSize = winwidth(0)
-  execute s:termCommand . 'cpbooster test "%" -a'
-  if (has('nvim'))
-    execute 'startinsert'
+  let tcFilePaths = systemlist('cpb stat ' . expand("%") . ' --nextTestCaseFilePaths')
+  let cpbVersion = system('cpb -v')
+  if (trim(cpbVersion) > "2.2.1")
+    "<filePath>.ans#
+    execute 'botright vnew ' . tcFilePaths[1]
+    "<filePath>.in#
+    execute 'leftabove new ' . tcFilePaths[0]
+  else
+    let totalSize = winwidth(0)
+    execute s:termCommand . 'cpbooster test "%" -a'
+    if (has('nvim'))
+      execute 'startinsert'
+    endif
+    execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
   endif
-  execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterCreate(...)
