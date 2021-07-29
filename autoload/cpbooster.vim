@@ -81,8 +81,7 @@ function cpbooster#CpboosterAddtc(...)
   execute 'w'
   call cpbooster#DeleteTerminalBuffers()
   let tcFilePaths = systemlist('cpb stat ' . expand("%") . ' --nextTestCaseFilePaths')
-  let cpbVersion = system('cpb -v')
-  if (trim(cpbVersion) > "2.2.1")
+  if (len(tcFilePaths) == 2) "since version 2.3.0 of cpbooster
     "<filePath>.ans#
     execute 'botright vnew ' . tcFilePaths[1]
     "<filePath>.in#
