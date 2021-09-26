@@ -20,7 +20,7 @@ function cpbooster#DeleteTerminalBuffers()
 endfunction
 
 function cpbooster#CpboosterTest(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -29,43 +29,43 @@ function cpbooster#CpboosterTest(...)
     execute s:termCommand . 'cpbooster test "%" -t ' . a:1	
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  execute 'wincmd w'
+  wincmd w
 endfunction
 
 function cpbooster#CpboosterDebug(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
     execute s:termCommand . 'cpbooster test "%" -d'
     if (has('nvim'))
-      execute 'startinsert'
+      startinsert
     endif
   else
     execute s:termCommand . 'cpbooster test "%" -d -t ' . a:1
-    execute 'wincmd w'
+    wincmd w
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterRDebug(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
     execute s:termCommand . 'cpbooster test "%" -d --nc'
     if (has('nvim'))
-      execute 'startinsert'
+      startinsert
     endif
   else
     execute s:termCommand . 'cpbooster test "%" -d --nc -t ' . a:1
-    execute 'wincmd w'
+    wincmd w
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
 
 function cpbooster#CpboosterRTest(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -74,11 +74,11 @@ function cpbooster#CpboosterRTest(...)
     execute s:termCommand . 'cpbooster test "%" --nc -t ' . a:1	
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  execute 'wincmd w'
+  wincmd w
 endfunction
 
 function cpbooster#CpboosterAddtc(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let tcFilePaths = systemlist('cpb stat ' . expand("%") . ' --nextTestCaseFilePaths')
   if (len(tcFilePaths) == 2) "since version 2.3.0 of cpbooster
@@ -90,14 +90,14 @@ function cpbooster#CpboosterAddtc(...)
     let totalSize = winwidth(0)
     execute s:termCommand . 'cpbooster test "%" -a'
     if (has('nvim'))
-      execute 'startinsert'
+      startinsert
     endif
     execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
   endif
 endfunction
 
 function cpbooster#CpboosterCreate(...)
-  execute 'w'
+  w
   if a:0 == 1
     execute '!cpbooster create ' . a:1
     execute 'e ' . a:1
@@ -107,7 +107,7 @@ function cpbooster#CpboosterCreate(...)
 endfunction
 
 function cpbooster#CpboosterSubmit(...)
-  execute 'w'
+  w
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 1
@@ -116,5 +116,5 @@ function cpbooster#CpboosterSubmit(...)
     execute s:termCommand . 'cpbooster submit "%"'
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  execute 'wincmd w'
+  wincmd w
 endfunction
