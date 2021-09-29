@@ -20,7 +20,7 @@ function cpbooster#DeleteTerminalBuffers()
 endfunction
 
 function cpbooster#CpboosterTest(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -33,7 +33,7 @@ function cpbooster#CpboosterTest(...)
 endfunction
 
 function cpbooster#CpboosterDebug(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -49,7 +49,7 @@ function cpbooster#CpboosterDebug(...)
 endfunction
 
 function cpbooster#CpboosterRDebug(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -65,7 +65,7 @@ function cpbooster#CpboosterRDebug(...)
 endfunction
 
 function cpbooster#CpboosterRTest(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 0
@@ -78,7 +78,7 @@ function cpbooster#CpboosterRTest(...)
 endfunction
 
 function cpbooster#CpboosterAddtc(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let tcFilePaths = systemlist('cpb stat ' . expand("%") . ' --nextTestCaseFilePaths')
   if (len(tcFilePaths) == 2) "since version 2.3.0 of cpbooster
@@ -97,7 +97,7 @@ function cpbooster#CpboosterAddtc(...)
 endfunction
 
 function cpbooster#CpboosterCreate(...)
-  w
+  up
   if a:0 == 1
     execute '!cpbooster create ' . a:1
     execute 'e ' . a:1
@@ -107,7 +107,7 @@ function cpbooster#CpboosterCreate(...)
 endfunction
 
 function cpbooster#CpboosterSubmit(...)
-  w
+  up
   call cpbooster#DeleteTerminalBuffers()
   let totalSize = winwidth(0)
   if a:0 == 1
