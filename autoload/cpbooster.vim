@@ -29,7 +29,7 @@ function cpbooster#CpboosterTest(...)
     execute s:termCommand . 'cpbooster test "%" -t ' . a:1	
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  wincmd w
+  wincmd p
 endfunction
 
 function cpbooster#CpboosterDebug(...)
@@ -43,7 +43,7 @@ function cpbooster#CpboosterDebug(...)
     endif
   else
     execute s:termCommand . 'cpbooster test "%" -d -t ' . a:1
-    wincmd w
+    wincmd p
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
@@ -59,7 +59,7 @@ function cpbooster#CpboosterRDebug(...)
     endif
   else
     execute s:termCommand . 'cpbooster test "%" -d --nc -t ' . a:1
-    wincmd w
+    wincmd p
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
 endfunction
@@ -74,7 +74,7 @@ function cpbooster#CpboosterRTest(...)
     execute s:termCommand . 'cpbooster test "%" --nc -t ' . a:1	
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  wincmd w
+  wincmd p
 endfunction
 
 function cpbooster#CpboosterAddtc(...)
@@ -116,5 +116,5 @@ function cpbooster#CpboosterSubmit(...)
     execute s:termCommand . 'cpbooster submit "%"'
   endif
   execute 'vertical resize ' . string(totalSize * s:cpboosterWindowRatio) 
-  wincmd w
+  wincmd p
 endfunction
